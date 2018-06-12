@@ -1,0 +1,4 @@
+A "design document" for your project in the form of a file called design.txt that discusses, technically, how you implemented your project and why
+you made the design decisions you did. Your design document should be at least a couple of paragraphs in length. Feel free to include charts, or
+any other graphics to explain yourself. Whereas your documentation is meant to be a user’s manual, consider your design document your
+opportunity to give the teacher a technical tour of your project underneath its hood.
