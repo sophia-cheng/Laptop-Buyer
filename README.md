@@ -1,5 +1,3 @@
-Laptop Buyer
-
 This skill is meant to help people purchase laptops by helping them gain insight on the best laptops on the market in a consumer-friendly way.
 
 Start the Laptop Buyer skill by saying the following sentence:
