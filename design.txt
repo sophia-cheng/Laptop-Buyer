@@ -1,4 +1,18 @@
-A "design document" for your project in the form of a file called design.txt that discusses, technically, how you implemented your project and why
-you made the design decisions you did. Your design document should be at least a couple of paragraphs in length. Feel free to include charts, or
-any other graphics to explain yourself. Whereas your documentation is meant to be a user’s manual, consider your design document your
+A "design document" for your project in the form of a file called design.txt that discusses, technically, how you implemented your project and why you made the design decisions you did. Your design document should be at least a couple of paragraphs in length. Feel free to include charts, or any other graphics to explain yourself. Whereas your documentation is meant to be a user’s manual, consider your design document your
 opportunity to give the teacher a technical tour of your project underneath its hood.
+
+The Laptop Buyer skill helps the user by asking questions and answering them. The skill will ask a question to understand what the user is looking for in a laptop the most. After answering, one of the count variables, depending on which concern/category the user chooses, will be set to a value of 1. Then, the user is asked which brand they would like to look into. There are intents for each brand, one intent per brand with if and else if statements in each that work depending on which concern is being given by the user (it does this by checking which count variable has been set to 1). The if or else if statement will set a temporary variable's value to a String that comes from one of the 2D arrays and returns it to the user. More details on the 2D arrays is coming after this. The phases of the skill overall are concern, concern options (optional), brands, laptop recommendations, and information on laptop recommendations made.
+
+chart of the best brands (in no particular order) for each category/concern that the user may have:
+
+money    quality    innovation  
+Lenovo   Dell       Dell
+Dell     Lenovo     HP
+HP      Microsoft   Lenovo
+Acer     HP         Apple
+Asus     Apple      Acer
+
+As you can see, the categories/concerns are money, quality, and innovation. These are also the three concerns that the user can have addressed by the skill. I chose to make only these three because they seemed to be the main aspects of concern among tech websites, blogs, reviews, and consumers. They also covered many issues. For instance, money covered affordability, tight budgets, and best value for your money (kind of like ROI) and quality covered issues like how capable or powerful laptops were and what the best laptops were overall.
+
+This chart also shows how each of the three 2D arrays in the Lambda code are laid out. It seemed to be a good way to organize information in the skill. The three 2D arrays are called brands, laptops, and information. The brands 2D array is like the chart shown above, including categories and brand names. The laptops 2D array has the same information in the first row (money, quality, innovation), but the rest of the 2D array is filled with actual laptop names that relate to the brand in that space (from the brands array) and refer to the best laptops for that category/column. For example, Lenovo is the first brand under the money column, so in the laptops 2D array, that position contains a String of the best Lenovo laptops for money/affordability. The information 2D array is completed in the same manner, but with information on each laptop to describe and highlight some of its key features. Overall, this makes it more straight-forward when typing all the data and sending it to the user, as the rows and columns positions match up!
+
