@@ -1,6 +1,6 @@
 # Laptop-Buyer
 
-This skill is meant to help people purchase laptops by helping them gain insight on the best laptops on the market in a consumer-friendly way.
+This skill is meant to help people purchase laptops by helping them gain insight on the best laptops on the market in a consumer-friendly way. The skill does this by asking for the user's concern, asking which brand they would like, and providing the option to give more information on the laptops.
 
 1. Start the Laptop Buyer skill by saying the following sentence:
 "Alexa, open Laptop Buyer and let's talk" 
