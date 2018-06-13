@@ -1,6 +1,3 @@
-# Laptop-Buyer
-Documentation for your project in the form of a file called README.txt. This documentation is to be a user’s manual for your project. Though the structure of your documentation is entirely up to you, it should be incredibly clear to the user how to use your Alexa Skill and why they should use it. It should not be necessary for a user to ask questions regarding your project after its submission. Hold our hand with this documentation; be sure to answer in your documentation any questions that you think a user might have while using your skill.
-
 This skill is meant to help people purchase laptops by helping them gain insight on the best laptops on the market in a consumer-friendly way.
 
 Start the Laptop Buyer skill by saying the following sentence:
@@ -20,4 +17,5 @@ Reply with one of the brand names that Alexa lists. Example: "Dell", "I like Del
 
 Alexa will reply with a laptop recommendation or two, depending on how many laptops from tha brand fits into that category well.
 
-Here, you can request for additional information about the laptops that Alexa just recommended. You can say "give me more information", "tell me more", or phrases that are similar.
+Here, you can request for additional information about the laptops that Alexa just recommended. You can say "give me more information", "tell me more", or phrases that are similar. Alexa will reply with more information on that specific laptop or laptops.
+
