@@ -93,7 +93,7 @@ var handlers = {
          this.emit(':responseReady');
     },
     
-/* These are the concern intents that allow Alexa to begin guiding the user down the right path
+    /* These are the concern intents that allow Alexa to begin guiding the user down the right path
    for a good laptop recommendation */
     'moneyIntent': function ()
     { 
@@ -131,12 +131,18 @@ var handlers = {
          this.emit(':responseReady');
     },
 
+    'otherBrandIntent': function () {
+        let brand1 = this.event.request.intent.slots.brand.value;      
+        this.response.speak("I am not familiar with " + brand1 +". What is another brand you like?")
+            .listen("Which brand?");
+        this.emit(':responseReady');
+    },
 
-/* brand intents start here and are in alphabetical order.'recommendation" is a variable that is built throughout the for loop
-for it to eventually be sent to the user to give them a list of laptop recommmendations
-the if and else ifs make it clear that a concern was chosen and that the skill is going right
-requestRow and requestCol record information so the user can ask for more info on the laptop they got a recommendation of.
-*/
+    /* brand intents start here and are in alphabetical order.'recommendation" is a variable that is built throughout the for loop
+    for it to eventually be sent to the user to give them a list of laptop recommmendations
+    the if and else ifs make it clear that a concern was chosen and that the skill is going right
+    requestRow and requestCol record information so the user can ask for more info on the laptop they got a recommendation of.
+    */
     'AcerIntent': function ()
     {
         let recommendation = "";
@@ -151,6 +157,10 @@ requestRow and requestCol record information so the user can ask for more info o
             requestRow =5;
             requestCol=2;
         }
+        else {
+            recommendation+= "There are other brands that address your concern better, what is another brand you like?"
+             this.response.speak(recommendation)
+            this.emit(':responseReady'); }
         moneyTrack = 0;
         innovTrack = 0;
         this.response.speak("Acer is known to have affordable options for laptops with good quality."
@@ -173,6 +183,10 @@ requestRow and requestCol record information so the user can ask for more info o
             requestRow =4;
             requestCol=2;
         }
+        else {
+            recommendation+= "There are other brands that address your concern better, what is another brand you like?"
+             this.response.speak(recommendation)
+            this.emit(':responseReady'); }
         qualTrack = 0;
         innovTrack = 0;
         this.response.speak(" Apple is known for unique laptops and accessories with good performance. "
@@ -189,6 +203,10 @@ requestRow and requestCol record information so the user can ask for more info o
             requestRow =5;
             requestCol=0;
         }
+        else {
+            recommendation+= "There are other brands that address your concern better, what is another brand you like?"
+             this.response.speak(recommendation)
+            this.emit(':responseReady'); }
         moneyTrack = 0;
         this.response.speak("Asus is known to have excellent, affordable choices for laptops."
                             + "Based on your concern, you may want to try the " + recommendation) 
@@ -215,6 +233,10 @@ requestRow and requestCol record information so the user can ask for more info o
             requestRow =1;
             requestCol=2;
         }
+        else {
+            recommendation+= "There are other brands that address your concern better, what is another brand you like?"
+             this.response.speak(recommendation)
+            this.emit(':responseReady'); }
         moneyTrack = 0;
         qualTrack = 0;
         innovTrack = 0;
@@ -243,6 +265,10 @@ requestRow and requestCol record information so the user can ask for more info o
             requestRow =2;
             requestCol=2;
         }
+        else {
+            recommendation+= "There are other brands that address your concern better, what is another brand you like?"
+             this.response.speak(recommendation)
+            this.emit(':responseReady'); }
         moneyTrack = 0;
         qualTrack = 0;
         innovTrack = 0;
@@ -271,6 +297,10 @@ requestRow and requestCol record information so the user can ask for more info o
             requestRow =3;
             requestCol=2;
         }
+        else {
+            recommendation+= "There are other brands that address your concern better, what is another brand you like?"
+             this.response.speak(recommendation)
+            this.emit(':responseReady'); }
         moneyTrack = 0;
         qualTrack = 0;
         innovTrack = 0;
@@ -287,17 +317,17 @@ requestRow and requestCol record information so the user can ask for more info o
             requestRow=3;
             requestCol=1;
         }
+        else {
+            recommendation+= "There are other brands that address your concern better, what is another brand you like?"
+             this.response.speak(recommendation)
+            this.emit(':responseReady'); 
+        }
         qualTrack = 0;
         this.response.speak(" Microsoft has a variety of great quality products. "
                             +"Based on your concern, you may want to try the " + recommendation)
             this.emit(':responseReady'); 
     },                             
-                                 
-    'otherBrandIntent': function () {
-        let brand1 = this.event.request.intent.slots.brand.value;      // folder--all these things used to get to a thing
-        this.response.speak("I am not familiar with " + brand1);
-        this.emit(':responseReady');
-    },
+                                
     
     /* when users request more information on a laptop recommendation, this intent is used. It returns information
     from the information array */
@@ -311,18 +341,15 @@ requestRow and requestCol record information so the user can ask for more info o
             .listen("more info?");
                         this.emit(':responseReady'); 
     },
-    };
 
-// checks to see if user's concern is a concern option
-function concernCheck(concern) {
-    for (let i=0;i<concerns.length;i++)
-    {
-        if(concern == concerns[i]) {
-            return concern + " is a concern for me too.";
-        }
+    // checks to see if user's concern is a concern option
+    //function concernCheck(concern) {
+    'concernCheck': function () {
+    this.response.speak( "I am not familiar with that concern. What is another concern you have?")
+        .listen("concern?");
+    this.emit(':responseReady');
     }
-    return "I am not familiar with that concern.";
-}
+    };
 
 // This is the function that AWS Lambda calls every time Alexa uses your skill.
 exports.handler = function(event, context, callback) {
