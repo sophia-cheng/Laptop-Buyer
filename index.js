@@ -311,18 +311,7 @@ requestRow and requestCol record information so the user can ask for more info o
             .listen("more info?");
                         this.emit(':responseReady'); 
     },
-
     };
-
- /* checks to see if user's brand is a brand option
-    function brandCheck(brand) {
-    for (let i=0;i<brands.length;i++) {
-        if(brand == brands[i]) {
-            return "I like " + brand + " too.";
-        }
-    }
-    return "I am not familiar with that brand.";
-} */
 
 // checks to see if user's concern is a concern option
 function concernCheck(concern) {
